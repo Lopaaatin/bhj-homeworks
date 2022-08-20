@@ -1,7 +1,7 @@
 let modalMain = document.getElementById('modal_main');
 let modalClose = Array.from(document.getElementsByClassName('modal__close'));
 let modalSuccess = document.getElementById('modal_success');
-let showSuccess = Array.from(document.getElementsByClassName('show-success'))
+let showSuccess = document.querySelector('.show-success');
 
 modalMain.classList.add('modal_active');
 
@@ -11,6 +11,6 @@ for (let i=0; i < modalClose.length; i++) {
   })
 };
 
-showSuccess[0].addEventListener('click', function() {
+showSuccess.addEventListener('click', function() {
   modalSuccess.classList.add('modal_active');
 });
