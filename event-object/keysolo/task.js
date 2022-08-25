@@ -17,8 +17,16 @@ class Game {
   }
 
   registerEvents() {
-    
-    
+    document.addEventListener('keydown', (event) => {
+        if (("Key" + this.currentSymbol.textContent.toUpperCase()) == event.code) {
+          this.success();
+        } 
+        else {
+          this.fail();
+        };
+      }
+    );
+
     /*
       TODO:
       Написать обработчик события, который откликается
@@ -86,7 +94,10 @@ class Game {
 
     this.currentSymbol = this.wordElement.querySelector('.symbol_current');
   }
+  
 }
 
 new Game(document.getElementById('game'))
+
+
 
