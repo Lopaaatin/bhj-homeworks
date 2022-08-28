@@ -5,5 +5,8 @@ document.addEventListener('scroll', function() {
     if (reveal.getBoundingClientRect().top < window.innerHeight) {
       reveal.classList.add('reveal_active');
     }
+    if ((reveal.getBoundingClientRect().top > window.innerHeight) || (reveal.getBoundingClientRect().bottom < 0)) {
+      reveal.classList.remove('reveal_active');
+    }
   });
 });
