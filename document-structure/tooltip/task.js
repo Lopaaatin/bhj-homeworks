@@ -47,6 +47,37 @@ hasTooltips.forEach(function(hasTooltip, i) {
     }
 
     tooltipDivs[i].setAttribute('style', `left: ${left}px; top: ${top}px`);
+
+    document.addEventListener ('scroll', () => {
+      let position = hasTooltip.getBoundingClientRect();
+      let tooltipLength = tooltipDivs[i].getBoundingClientRect().right - tooltipDivs[i].getBoundingClientRect().left;
+      let tooltipHeigth = tooltipDivs[i].getBoundingClientRect().bottom - tooltipDivs[i].getBoundingClientRect().top;
+      let left;
+      let top;
+
+      if (tooltipDivs[i].dataset.position == 'bottom') {
+        left = position.left;
+        top = position.bottom;
+      }
+
+      if (tooltipDivs[i].dataset.position == 'left') {
+        left = position.left - tooltipLength;
+        top = ((position.top + position.bottom)/2 - (tooltipHeigth/2));
+      }
+
+      if (tooltipDivs[i].dataset.position == 'top') {
+        left = position.left;
+        top = position.top - tooltipHeigth;
+      }
+
+      if (tooltipDivs[i].dataset.position == 'right') {
+        left = position.right;
+        top = ((position.top + position.bottom)/2 - (tooltipHeigth/2));
+      }
+
+      tooltipDivs[i].setAttribute('style', `left: ${left}px; top: ${top}px`);
+
+    })
     
   });
 
