@@ -45,3 +45,15 @@
   display: block;
   text-align: center;
 }
+
+.logout {
+  display: none;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;  
+}
+
+.logout_active {
+  display: block;
+  text-align: center;
+}
